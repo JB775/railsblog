@@ -9,15 +9,44 @@
 <body>
 	<header>
 		<ul class="header_links">
-			<li><%= link_to 'Create New User', new_path %></li>
-			<li><a href="">List Item 2</a></li>
-			<li><a href="">List Item 3</a></li>
-			<li><%= link_to 'Home', root_path %></li>
+			<% if session[:user_id] %>
+				<li><%= link_to 'Logout', destroy_session_path %></li>		
+				<li><%= link_to 'Preferences', user_path(session[:user_id]) %></li>		
+				<li><%= link_to 'See All Users', allusers_path %></li>						
+				<li><%= link_to 'Check Latest Posts', posts_index_path %></li>		
+				<li><%= link_to 'Create New Post', posts_path %></li>						
+				<li><%= link_to 'Home', root_path %></li>
+			<% else %>
+				<li><%= link_to 'Login', login_path %></li>
+				<li><%= link_to 'Create New User', new_path %></li>
+				<li><%= link_to 'Home', root_path %></li>
+			<% end %>
+
 		</ul>
 	</header>
 	<br>
-	<p class="flash_notice"><%= flash[:notice] %></p>
-<%= yield %>
+	<% if flash[:notice] %>
+		<p class="flash_message"><%= flash[:notice] %></p>
+	<% end %>
+	<% if flash[:alert] %>
+		<p class="flash_message"><%= flash[:alert] %></p>
+	<% end %>
+	<%= yield %>
 
+	<% if session[:user_id] %>
+		<br>
+		<br>
+		<br>
+		<br>		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<p>Currently Signed in as Username: <%= User.find(session[:user_id]).username %> </p>
+	<% end %>
 </body>
 </html>

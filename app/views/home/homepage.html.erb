@@ -1,0 +1,16 @@
+<h1>Welcome Home</h1>
+<hr>
+
+<br>
+
+
+<% if session[:user_id] %>
+	<h3>My Posts:</h3>
+	<hr>
+
+	<% for i in 0..@myPosts.length-1 do %>
+
+	  <p> <%= link_to @myPosts[i].title, post_path(@myPosts[i].id) %> </p>
+
+	<% end %>
+<% end %>

@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(user_id: @user.id)
+    # puts params 
+    # @searchedUser = User.where(username: :search) #add params inside parenthesis?
+
   end
 
   def edit
@@ -34,4 +38,22 @@ class UsersController < ApplicationController
     flash[:notice] = "User Successfully Created"
     redirect_to user_path(@user)
   end
+  
+  def search
+    puts "*************** PARAMS"
+    puts params
+    results = User.where(username: params[:search])
+    if results.length == 0
+      flash[:notice] = "No matches"
+      redirect_to allusers_path
+    elsif results.length == 1
+      @user = results.first
+      redirect_to user_path(@user)
+    else 
+      @user = results
+
+    end
+
+  end
+
 end

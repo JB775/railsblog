@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-	scope :recent_user_activity, -> myDate {
-		puts "Is this working?"
-	}
+  has_many :posts
+  has_many :comments
+
+  scope :recent_user_activity, -> myDate {
+    puts "Is this working?"
+  }
 end

@@ -1,20 +1,15 @@
 <h1>Login</h1>
+<% if flash[:alert] %>
+  <h3 class="flash_message"><%= flash[:alert] %></h3>
+<% end %>
 
-<%= form_tag '/users/sign_in' do |f| %>
+<%= form_tag '/login' do %>
 
-  <p>
-  	<%= f.label_tag :username %>
-  	<%= f.text_field_tag :username %>
-  </p>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
 
-  <p>
-  	<%= f.label.tag :password %>
-  	<%= f.password_field.tag :password %>
-
-  	submit_tag
-
-  	
-  </p>
-
+  <%= submit_tag "Login"  %>
 
 <% end %>

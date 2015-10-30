@@ -1,8 +1,17 @@
-<h1>My User</h1>
+<h1>All Users</h1>
+
+  <%= form_tag "users/16" do %>
+	  <%= label_tag :search %>
+  	  <%= text_field_tag :search %>
+  	  <%= submit_tag "Search"  %>
+  <% end %>
+
+
 
 <% @users.each do |user| %>
 
-<p><%= link_to user.username, user_path(user.id) %></p>
-
+	<% if user.id != session[:user_id] %>
+		<p><%= link_to user.username, user_path(user.id) %></p>
+	<% end %>
 
 <% end %>

@@ -1,0 +1,80 @@
+<h1><%= @post.title %></h1>
+
+
+<hr>
+<br>
+<strong>
+	<p> <%= @post.content %> </p>
+</strong>
+<hr>
+
+
+
+
+
+
+<% while @counter < @comment.length %>
+
+	<% 
+		@thisCommentId = @comment[@counter].id 
+		@commentcomment = Commentoncomment.where(comment_id: @thisCommentId)
+	%>
+	<p class="comment"> <%= @comment[@counter].content %> --- Comment From User: <%=  User.find(@comment[@counter].user_id).username %> </p>
+
+		<!-- loop thru this with a while loop inside of the comment block -->
+		<% while @counter2 < @commentcomment.length  %>
+			<p class= "comment_comment">Comments on Comments here! --- <%= @commentcomment[@counter2].content %> --- From User: <%= User.find(@commentcomment[@counter2].user_id).username %> </p>
+			<% @counter2 += 1 %>
+		<% end %>
+	<% @counter2 = 0 %>
+
+
+	<%= form_for @newCommentonComment, url: another_comment_path do |f| %>
+		<p>
+			<%= f.label :commentcomment %>
+			<%= f.text_area :content %>
+		</p>
+		<p>
+			<%= f.hidden_field :hidden, :value => @post.id %>
+		</p>
+		<p>
+			<%= f.hidden_field :hidden2, :value => @comment[@counter].id %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+
+	<% @counter += 1 %>
+<% end %>
+<% @counter = 0 %>
+
+
+
+
+<%= form_for @newComment, url: create_comment_path do |f| %>
+
+	<p>
+		<%= f.label :comment %>
+		<%= f.text_area :content %>
+	</p>
+	<p>
+		<%= f.hidden_field :hidden, :value => @post.id %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+

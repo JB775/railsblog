@@ -1,8 +1,22 @@
-<br>
-<h1><%= @user.username %></h1>
-<br>
+<% if session[:user_id] == @user.id %>
+	<h3><%= @user.username %>'s Account Preferences</h3>
+	<br>
+	<p><%= link_to 'Edit User', edit_user_path  %></p>
+	<p><%= link_to 'Delete Account', user_path, method: :delete  %></p>
+
+<% else %>
+	
+	<br>
+	<h1><%= @user.username %></h1>
+	<br>
+
+	<h3><%= @user.username %>'s Posts</h3>
+
+	<% @posts.each do |post| %>
+
+		<p><%= link_to post.title, post_path(post.id) %></p>
+
+	<% end %>
 
 
-<br>
-<p><%= link_to 'Edit User', edit_user_path  %></p>
-<p><%= link_to 'Delete User', user_path, method: :delete  %></p>
+<% end %>
