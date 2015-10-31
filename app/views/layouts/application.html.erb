@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Railstest1</title>
+  <title>jumblr</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -21,32 +23,39 @@
 				<li><%= link_to 'Create New User', new_path %></li>
 				<li><%= link_to 'Home', root_path %></li>
 			<% end %>
-
 		</ul>
+	
+		<%= image_tag 'jumblr-logo.gif', :class => 'jumblr_logo' %>
 	</header>
-	<br>
-	<% if flash[:notice] %>
-		<p class="flash_message"><%= flash[:notice] %></p>
-	<% end %>
-	<% if flash[:alert] %>
-		<p class="flash_message"><%= flash[:alert] %></p>
-	<% end %>
-	<%= yield %>
+		<hr class="clearing_hr">
+	<div class="body_wrapper">
+		<br>
+		<% if flash[:notice] %>
+			<p class="flash_message"><%= flash[:notice] %></p>
+		<% end %>
+		<% if flash[:alert] %>
+			<p class="flash_message"><%= flash[:alert] %></p>
+		<% end %>
+		
+		<%= yield %>
 
-	<% if session[:user_id] %>
-		<br>
-		<br>
-		<br>
-		<br>		
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<p>Currently Signed in as Username: <%= User.find(session[:user_id]).username %> </p>
-	<% end %>
+		<% if session[:user_id] %>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<footer>
+				<p>Currently Signed in as Username: <%= User.find(session[:user_id]).username %> </p>
+			</footer>
+		<% end %>
+	</div>
 </body>
 </html>

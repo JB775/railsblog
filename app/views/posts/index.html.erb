@@ -1,10 +1,12 @@
-<h1>Showing all Post Titles via Index Action</h1>
+<h1>Recent Blog Posts</h1>
+<br>
+<br>
 
 <% @posts.each do |post| %>
 	
 	<% if User.where(id: post.user_id).length > 0 %>
 	  <% thisUsername = User.find(post.user_id).username %>
-	  <p><%= link_to post.title, post_path(post.id)  %> Authored By: <%= thisUsername %>   </p> 
+	  <p> <%= link_to post.title, post_path(post.id)  %> Authored By: <%= thisUsername %> </p> 
 	  <hr>
 	  <br>	 
 	<% end %>

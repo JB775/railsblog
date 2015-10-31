@@ -14,30 +14,151 @@
  *= require_self
  */
 
- /*  Header  */
+ /* Main HTML and Body of Page */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+}
 
-.header_links {
-	list-style: none;
+
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+
+@media (min-width: 870px) {
+ 	
+ 	/*  Header  */
+
+	 header {
+	 	height: 80px;
+	 	background-color: #39B0D7;
+	 }
+
+	header:hover .header_links a {
+		color: #BDE4F1;
+	}
+
+	header:hover .header_links a:hover {
+		color: white;
+	}
+
+	.header_links {
+		list-style: none;
+		padding-right: 10px;
+	}
+
+	.header_links li {
+		float: right;
+		padding-top: 29px;
+	}
+
+	.header_links a {
+		text-decoration: none;
+		color: white;
+		margin-left: 20px;
+	}
+
+	.header_links a:visited {
+		color: white;	
+	}
+
+	.flash_message {
+		background-color: red;
+		width: 200px;
+		text-align: center;
+	}
+
+	.jumblr_logo {
+		height: 80px; 
+	}
+
+	.clearing_hr {
+		clear: both;
+	}
+
+	/* Content on Page Body */
+
+	.body_wrapper {
+		padding: 5px 7px;
+	}
+
+	h1 {
+		font-size: 2rem;	
+		padding-left: 15px;
+	}
+
+	.main_comment_form {
+		padding-left: 20px;
+	}
+
+	.comment_comment_form {
+		padding-left: 80px;
+	}
+
+	.comment_comment {
+		padding: 15px 0 0 100px;
+		font-size: 80%;
+	}
+
+	.comment {
+		padding: 5px 0 0 30px;
+	}
+
+	.comment_wrapper {
+		background-color: #F6F7F8;
+	}
+
+	.username_comment a {
+		color: darkblue;
+		font-size: 1.2rem;
+		text-decoration: none;
+	}
+
+	/* Footer */
+
+	footer {
+		position: fixed;
+		bottom: 0;
+		background-color: #39B0D7;
+	}
+
 
 }
 
-.header_links li {
-	float: right;
-}
 
-.header_links a {
-	text-decoration: none;
-	color: green;
-	margin-left: 20px;
 
-}
 
-.header_links a:visited {
-	color: green;	
-}
 
-.flash_message {
-	background-color: red;
-	width: 200px;
-	text-align: center;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
