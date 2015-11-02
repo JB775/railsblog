@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
+<!--
+
+ ╭╮╭╮╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╭╮
+┃┃┃┃┃┃╱╱┃┃╱╱╱╱╱╱╱╱╱╱╱╱┃┃
+┃┃┃┃┃┣━━┫┃╭━━┳━━┳╮╭┳━━┫┃
+┃╰╯╰╯┃┃━┫┃┃╭━┫╭╮┃╰╯┃┃━╋╯
+╰╮╭╮╭┫┃━┫╰┫╰━┫╰╯┃┃┃┃┃━╋╮
+╱╰╯╰╯╰━━┻━┻━━┻━━┻┻┻┻━━┻╯
+ 
+-->
 <head>
   <title>jumblr</title>
+	<%= favicon_link_tag 'favicon.ico' %>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -32,9 +43,11 @@
 		<br>
 		<% if flash[:notice] %>
 			<p class="flash_message"><%= flash[:notice] %></p>
+			<br>
 		<% end %>
 		<% if flash[:alert] %>
 			<p class="flash_message"><%= flash[:alert] %></p>
+			<br>
 		<% end %>
 		
 		<%= yield %>

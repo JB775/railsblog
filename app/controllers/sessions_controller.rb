@@ -16,17 +16,17 @@ class SessionsController < ApplicationController
         redirect_to root_path
       else
         flash[:alert] = "Login Not Successful, Please Try Again"
-        redirect_to root_path
+        redirect_to login_path
       end
     else
       flash[:alert] = "Login Not Successful, Please Try Again"
-      redirect_to root_path
+      redirect_to login_path
     end
   end	
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Successfully Logged Out"
+    #flash[:notice] = "Successfully Logged Out"
     redirect_to root_path
   end
 
