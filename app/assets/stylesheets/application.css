@@ -242,6 +242,13 @@ html, body {
 	  animation: bounce 2s infinite;
 	}
 
+	/* Thumbnail Pictures */
+
+	.thumbs img {
+		width: 55px;
+	}
+
+/*Still Need to Complete Mobile CSS*/
 
 }
 

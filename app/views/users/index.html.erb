@@ -12,6 +12,7 @@
 
 	<% if user.id != session[:user_id] %>
 		<p><%= link_to user.username, user_path(user.id) %></p>
+		<div class="thumbs"><%= image_tag user.image.url() %></div>
 	<% end %>
 
 <% end %>

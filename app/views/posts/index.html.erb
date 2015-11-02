@@ -6,7 +6,9 @@
 	
 	<% if User.where(id: post.user_id).length > 0 %>
 	  <% thisUsername = User.find(post.user_id).username %>
+	  <% thisUserPic = User.find(post.user_id).image.url() %>
 	  <p> <%= link_to post.title, post_path(post.id)  %> Authored By: <%= thisUsername %> </p> 
+	  <div class="thumbs"><%= image_tag thisUserPic %></div>
 	  <hr>
 	  <br>	 
 	<% end %>

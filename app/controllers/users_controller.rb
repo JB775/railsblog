@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   def update
     @user = User.find(params[:id])
-    @user.update(params.require(:user).permit(:username, :password, :favcolor))
+    @user.update(params.require(:user).permit(:username, :password, :image))
     flash[:notice] = "User Successfully Updated"
     redirect_to user_path(@user)
   end
@@ -34,20 +34,21 @@ class UsersController < ApplicationController
     flash[:notice] = 'User Deleted!'
   end
   def create
-    @user = User.create(params.require(:user).permit(:username, :password, :favcolor))
+    @user = User.create(params.require(:user).permit(:username, :password, :image))
     flash[:notice] = "User Successfully Created"
     redirect_to user_path(@user)
   end
   
   def search
-    puts "*************** PARAMS"
-    puts params
+    #puts "*************** PARAMS"
+    #puts params
     results = User.where(username: params[:search])
     if results.length == 0
       flash[:notice] = "No matches"
       redirect_to allusers_path
-    elsif results.length == 1
+    elsif results.length > 1
       @user = results.first
+      flash[:notice] = "Multiple #{@user.username}'s found, returning the first result"
       redirect_to user_path(@user)
     else 
       @user = results

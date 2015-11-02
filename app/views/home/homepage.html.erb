@@ -1,7 +1,7 @@
 <% if session[:user_id] %>
 	<h1>Welcome Home</h1>
 	<hr>
-
+	<div><%= image_tag @user.image.url() %></div>
 	<br>
 
 

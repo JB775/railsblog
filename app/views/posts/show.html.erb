@@ -36,6 +36,7 @@
 			
 			<!-- loop thru this with a while loop inside of the comment block -->
 			<% while @counter2 < @commentcomment.length  %>
+			<div class="thumbs"><%= image_tag User.find(@commentcomment[@counter2].user_id).image.url() %></div>
 				<p class= "comment_comment"> <span class="username_comment_comment"> <%= link_to User.find(@commentcomment[@counter2].user_id).username, user_path(User.find(@commentcomment[@counter2].user_id).id) %> </span> ~ <%= @commentcomment[@counter2].content %> </p>
 				<% @counter2 += 1 %>
 			<% end %>
