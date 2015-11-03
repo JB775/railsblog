@@ -31,32 +31,37 @@
 			@thisCommentId = @comment[@counter].id 
 			@commentcomment = Commentoncomment.where(comment_id: @thisCommentId)
 		%>
+		<div class="larger-thumbs"><%= image_tag User.find(@comment[@counter].user_id).image.url() %></div>
 		<p class="comment"> <span class="username_comment"> <%= link_to User.find(@comment[@counter].user_id).username, user_path(User.find(@comment[@counter].user_id).id) %> </span> ~ <%= @comment[@counter].content %> </p>
 
 			
-			<!-- loop thru this with a while loop inside of the comment block -->
-			<% while @counter2 < @commentcomment.length  %>
-			<div class="thumbs"><%= image_tag User.find(@commentcomment[@counter2].user_id).image.url() %></div>
-				<p class= "comment_comment"> <span class="username_comment_comment"> <%= link_to User.find(@commentcomment[@counter2].user_id).username, user_path(User.find(@commentcomment[@counter2].user_id).id) %> </span> ~ <%= @commentcomment[@counter2].content %> </p>
-				<% @counter2 += 1 %>
-			<% end %>
+			<div class="replies">
+				<!-- loop thru this with a while loop inside of the comment block to add replies underneath-->
+				<% while @counter2 < @commentcomment.length  %>
+				<div class="thumbs reply"><%= image_tag User.find(@commentcomment[@counter2].user_id).image.url() %></div>
+					<p class= "comment_comment"> <span class="username_comment_comment"> <%= link_to User.find(@commentcomment[@counter2].user_id).username, user_path(User.find(@commentcomment[@counter2].user_id).id) %> </span> ~ <%= @commentcomment[@counter2].content %> </p>
+					<% @counter2 += 1 %>
+				<% end %>
+			</div>
 		<% @counter2 = 0 %>
 		<br>
 
-		<%= form_for @newCommentonComment, url: another_comment_path do |f| %>
-			<p class="comment_comment_form">
-				<%= f.text_area :content, size: '50x1', :placeholder => 'Write A Reply...' %>
-			</p>
-			<p>
-				<%= f.hidden_field :hidden, :value => @post.id %>
-			</p>
-			<p>
-				<%= f.hidden_field :hidden2, :value => @comment[@counter].id %>
-			</p>
-			<p class="comment_comment_form">
-				<%= f.submit %>
-			</p>
-		<% end %>
+		<div class="form2">
+			<%= form_for @newCommentonComment, url: another_comment_path do |f| %>
+				<p class="comment_comment_form">
+					<%= f.text_area :content, size: '50x1', :placeholder => 'Write A Reply...' %>
+				</p>
+				<p>
+					<%= f.hidden_field :hidden, :value => @post.id %>
+				</p>
+				<p>
+					<%= f.hidden_field :hidden2, :value => @comment[@counter].id %>
+				</p>
+				<p class="comment_comment_form">
+					<%= f.submit %>
+				</p>
+			<% end %>
+		</div>
 
 		<% @counter += 1 %>
 	<% end %>

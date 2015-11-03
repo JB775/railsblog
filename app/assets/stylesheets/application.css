@@ -248,6 +248,26 @@ html, body {
 		width: 55px;
 	}
 
+	.larger-thumbs img {
+		width: 80px;
+		float: left;
+	}
+
+	/* Replies Area */
+
+	.replies {
+		margin-top: 30px;
+	}
+
+	.reply {
+		float: left;
+		padding-top: 25px;
+	}
+
+	.form2 {
+		margin-top: 40px;
+	}
+
 /*Still Need to Complete Mobile CSS*/
 
 }
