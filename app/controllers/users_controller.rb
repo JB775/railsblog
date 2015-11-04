@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def delete
+    #wrap if session[:user_id] around this??
     @user = User.find(params[:id]) 
     @user.delete
     redirect_to root_path
