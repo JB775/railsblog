@@ -7,6 +7,10 @@
 	<p> <%= @post.content %> </p>
 </strong>
 <hr>
+<p><%= link_to "Like This Post", like_path(apple: @post.id), method: :get, remote: true, class:"likeButton" %></p>
+<p class="runningLikeTotal"><%= @likeAmount %></p>
+ <!-- ****************************************************************************************************************************** -->
+
 
 <div class= "comment_wrapper">
 	<br>
@@ -68,10 +72,36 @@
 	<% @counter = 0 %>
 </div>
 
+<script type="text/javascript">
+	$(".likeButton").on("ajax:complete", function(element, data, status) {
+
+		$(".runningLikeTotal").text(data.responseText);
+		console.log("Testing Console!!!")
+	});
 
 
+</script>
 
 
+<script type="text/javascript">
+	
+	$(document).on('ready', function(event) {
+  // initialize persistent state
+  console.log("testConsole")
+
+});
+
+$(document).on('page:fetch', function(event) {
+  // apply non-idempotent transformations to the body
+  console.log("Test Fetch")
+});
+
+$(document).on('page:receive', function(event) {
+  // apply non-idempotent transformations to the body
+  console.log("Test Receive")
+});
+
+</script>
 
 
 

@@ -14,29 +14,136 @@
  *= require_self
  */
 
- /* Main HTML and Body of Page */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-    font-family: 'Raleway', sans-serif;
-	font-weight: 900;
+
+ /*  Smaller Device CSS  */
+@media all and (min-width: 1px) and (max-width: 869px) {
+
+	 /* Main HTML and Body of Page */
+
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, 
+	address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, 
+	var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+	    margin: 0;
+	    padding: 0;
+	    border: 0;
+	    outline: 0;
+	    font-size: 100%;
+	    vertical-align: baseline;
+	    background: transparent;
+	    font-family: 'Raleway', sans-serif;
+		font-weight: 900;
+		text-align: center;
+		font-size: 4.5vw;
+	}
+
+	h1 {
+		font-size: 130%;
+	}
+
+	a {
+		text-decoration: none;
+		color: #39B0D7;
+	}
+
+	a:visited {
+		color: #39B0D7;
+	}
+
+	/* Header */
+
+	header {
+		/*background-image: url(assets/jumblr-logo.gif);*/
+		background-color: #39B0D7;
+		font-size: 80%;
+	}
+
+	.jumblr_logo {
+		display: none;
+	}
+
+	.jumblr_logo_mobile {
+		height: 25px; 
+	}
+
+	.header_links {
+		display: none;
+	}
+
+	.mobile_header_links {
+		list-style: none;
+		padding-right: 2px;		
+	}
+
+	.mobile_header_links li {
+		padding-top: 4px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.mobile_header_links a {
+		text-decoration: none;
+		color: white;
+		margin-left: 2px;
+	}
+
+	.mobile_header_links a:visited {
+		color: white;	
+	}
+
+	.flash_message {
+		background-color: red;
+		width: 100%;
+		text-align: center;
+	}
+	.clearing_hr {
+		display: none;
+	}
+
+	/* Profile Picture */	
+	.profile_pic img {
+		height: 150px;
+	}
+
+	/* Thumbnail Pictures */
+
+	.thumbs img {
+		width: 55px;
+	}
+
+	.larger-thumbs img {
+		width: 70px;
+		float: left;
+	}
+
 }
 
-
-
-html, body {
-	margin: 0;
-	padding: 0;
-	background-color: white;
-}
-
-
+ /*  Larger Device CSS  */
 @media (min-width: 870px) {
+
+	 /* Main HTML and Body of Page */
+
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
+	big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, 
+	dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+	    margin: 0;
+	    padding: 0;
+	    border: 0;
+	    outline: 0;
+	    font-size: 100%;
+	    vertical-align: baseline;
+	    background: transparent;
+	    font-family: 'Raleway', sans-serif;
+		font-weight: 900;
+	}
+
+	a {
+		text-decoration: none;
+		color: #39B0D7;
+	}
+
+	a:visited {
+		color: #39B0D7;
+	}
  	
  	/*  Header  */
 
@@ -56,6 +163,10 @@ html, body {
 	.header_links {
 		list-style: none;
 		padding-right: 10px;
+	}
+
+	.mobile_header_links {
+		display: none;
 	}
 
 	.header_links li {
@@ -83,8 +194,17 @@ html, body {
 		height: 80px; 
 	}
 
+	.jumblr_logo_mobile {
+		display: none;
+	}
+
 	.clearing_hr {
 		clear: both;
+	}
+
+	/* Profile Picture */	
+	.profile_pic img {
+		height: 200px;
 	}
 
 	/* Content on Page Body */

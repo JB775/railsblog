@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @likeAmount = Postlike.all.count
   	@post = Post.find(params[:id])
   	@comment = Comment.where(post_id: params[:id])
     #same as @comment but want to break it up for an easier read
@@ -31,5 +32,12 @@ class PostsController < ApplicationController
     @counter2 = 0
     @newComment = Comment.new
     @newCommentonComment = Commentoncomment.new
+  end
+
+  def like
+    @liked = Postlike.create(user_id:session[:user_id], post_id:params[:apple])
+    @likeAmount = Postlike.all.count
+    puts params
+    render :layout => false
   end
 end

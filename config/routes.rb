@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   patch 'users/:id', to: 'users#update'
   delete 'users/:id', to: 'users#delete'
 
+  get 'like' => "posts#like"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
