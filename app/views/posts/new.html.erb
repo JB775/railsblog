@@ -2,15 +2,19 @@
 <hr>
 
 <%= form_for @post do |f|  %>
-	<p class="title_content">
+	<p>
 		<%= f.label :title %>
-		<%= f.text_field :title %>
 	</p>
+	<p class="title_content">
+		<%= f.text_area :title, size: '90x1', :placeholder => 'Add Your Blog Post Title...' %>
+	</p>
+	<br class="desktop_break">
 	<br>
-	<br>
-	<p class="form_content">
+	<p>
 		<%= f.label :content %>
-		<%= f.text_field :content %>
+	</p>
+	<p class="form_content">
+		<%= f.text_area :content, size: '150x30', :placeholder => 'Add Your Blog Post Content...'  %>
 	</p>
 	<p>
 		<%= f.submit %>
