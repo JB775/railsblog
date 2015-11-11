@@ -1,18 +1,21 @@
-<h1>All Users</h1>
+	<h1>Search All Users</h1>
+	<br class="desktop_break">
 
-  <%= form_tag "users/16" do %>
-	  <%= label_tag :search %>
-  	  <%= text_field_tag :search %>
-  	  <%= submit_tag "Search"  %>
-  <% end %>
+	  <%= form_tag "users/16" do %>
+		  <%= label_tag :search %>
+	  	  <%= text_field_tag :search %>
+	  	  <%= submit_tag "Search"  %>
+	  <% end %>
 
 
 
-<% @users.each do |user| %>
+	<% @users.each do |user| %>
 
-	<% if user.id != session[:user_id] %>
-		<p><%= link_to user.username, user_path(user.id) %></p>
-		<div class="thumbs"><%= image_tag user.image.url() %></div>
+		<% if user.id != session[:user_id] %>
+			<p><%= link_to user.username, user_path(user.id) %></p>
+			<div class="thumbs"><%= image_tag user.image.url() %></div>
+		<% end %>
+
 	<% end %>
 
-<% end %>
+<!-- <div class="apple linear-gradient"></div> -->

@@ -1,0 +1,8 @@
+@import '../bourbon/bourbon';
+
+
+
+.linear-gradient {     
+	@include linear-gradient(white, #39B0D7);
+	min-height: 100vh; 
+}

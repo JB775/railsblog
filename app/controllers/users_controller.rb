@@ -52,8 +52,8 @@ class UsersController < ApplicationController
       flash[:notice] = "Multiple #{@user.username}'s found, returning the first result"
       redirect_to user_path(@user)
     else 
-      @user = results
-
+      @user = results.first
+      redirect_to user_path(@user)
     end
 
   end

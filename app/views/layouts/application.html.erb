@@ -2,13 +2,15 @@
 <html>
 <!--
 
- ╭╮╭╮╭╮╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╭╮
-┃┃┃┃┃┃╱╱┃┃╱╱╱╱╱╱╱╱╱╱╱╱┃┃
-┃┃┃┃┃┣━━┫┃╭━━┳━━┳╮╭┳━━┫┃
-┃╰╯╰╯┃┃━┫┃┃╭━┫╭╮┃╰╯┃┃━╋╯
-╰╮╭╮╭┫┃━┫╰┫╰━┫╰╯┃┃┃┃┃━╋╮
-╱╰╯╰╯╰━━┻━┻━━┻━━┻┻┻┻━━┻╯
- 
+╱╱╱╱╱╱╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╭╮╱╭╮╱╱╱╭╮
+╱╱╱╱╱╱╱╱┃┃╱╱╱╱╱╱╱╱╱╱╱╱╱╭╯╰╮╱╱╱╱╭╮╱╱╱╱╱┃┃╱┃┃╱╱╱┃┃
+╭╮╭╮╭┳━━┫┃╭━━┳━━┳╮╭┳━━╮╰╮╭╋━━╮╱╰╋╮╭┳╮╭┫╰━┫┃╭━╮┃┃
+┃╰╯╰╯┃┃━┫┃┃╭━┫╭╮┃╰╯┃┃━┫╱┃┃┃╭╮┃╱╭┫┃┃┃╰╯┃╭╮┃┃┃╭╯╰╯
+╰╮╭╮╭┫┃━┫╰┫╰━┫╰╯┃┃┃┃┃━┫╱┃╰┫╰╯┃╱┃┃╰╯┃┃┃┃╰╯┃╰┫┃╱╭╮
+╱╰╯╰╯╰━━┻━┻━━┻━━┻┻┻┻━━╯╱╰━┻━━╯╱┃┣━━┻┻┻┻━━┻━┻╯╱╰╯
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╯┃
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━╯
+
 -->
 <head>
   <title>jumblr</title>
@@ -55,37 +57,39 @@
 	
 		<%= image_tag 'jumblr-logo.gif', :class => 'jumblr_logo' %>
 	</header>
-		<hr class="clearing_hr">
-	<div class="body_wrapper">
-		<br>
-		<% if flash[:notice] %>
-			<p class="flash_message"><%= flash[:notice] %></p>
+	<div class="linear-gradient">
+			<hr class="clearing_hr">
+		<div class="body_wrapper">
 			<br>
-		<% end %>
-		<% if flash[:alert] %>
-			<p class="flash_message"><%= flash[:alert] %></p>
-			<br>
-		<% end %>
-		
-		<%= yield %>
+			<% if flash[:notice] %>
+				<p class="flash_message"><%= flash[:notice] %></p>
+				<br>
+			<% end %>
+			<% if flash[:alert] %>
+				<p class="flash_message"><%= flash[:alert] %></p>
+				<br>
+			<% end %>
+			
+			<%= yield %>
 
-		<% if session[:user_id] %>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<footer>
-				<p>Currently Signed in as Username: <%= User.find(session[:user_id]).username %> </p>
-			</footer>
-		<% end %>
+			<% if session[:user_id] %>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<footer>
+					<p>Currently Signed in as Username: <%= User.find(session[:user_id]).username %> </p>
+				</footer>
+			<% end %>
+		</div>
 	</div>
 </body>
 </html>
