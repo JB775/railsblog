@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20151106171459) do
     t.integer  "user_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", id: :bigserial, force: :cascade do |t|
     t.string   "content"
     t.integer  "user_id"
     t.integer  "post_id"
