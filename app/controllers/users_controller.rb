@@ -35,9 +35,14 @@ class UsersController < ApplicationController
     flash[:notice] = 'User Deleted!'
   end
   def create
-    @user = User.create(params.require(:user).permit(:username, :password, :image))
-    flash[:notice] = "User Successfully Created"
-    redirect_to user_path(@user)
+    @user = User.new(params.require(:user).permit(:username, :password, :image))
+    if @user.save
+      flash[:notice] = "User Successfully Created"
+      redirect_to login_path
+    else
+      flash[:alert] = "Error Creating User, Please Try Again"
+      redirect_to new_path 
+    end
   end
   
   def search
